@@ -49,14 +49,15 @@ class StockTradingBot:
 		#print(data)
 		self.execute_strategy(data)
 		self.display_portfolio(data)
+		return data, self.history
 
 	def display_portfolio(self, data):
 		print(f"Portfolio Summary:")
 		print(f"Cash: ${self.cash:.2f}")
 		print(f"Stock Balance: {self.stock_balance} shares")
 		print(f"Portfolio Value: ${(self.cash + self.stock_balance * data['Close'].iloc[-1]):.2f}")
-		print()
-		print(*self.history, sep="\n")
+		#print()
+		#print(*self.history, sep="\n")
 
 #if __name__ == "__main__":
 #	bot = StockTradingBot(symbol="AAPL", short_window=15, long_window=60, initial_cash=10000)
